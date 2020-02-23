@@ -101,8 +101,6 @@ optimizer = optim.Adam([
                        {'params': [magnet.I3, magnet.S2W, magnet.S2b], 'lr': 1e-3}
                        ], lr=1e-3)               
 
-#optimizer = optim.Adam([magnet.I3, magnet.S2W, magnet.S2b], lr = 5e-4)
-
 criterion = nn.SmoothL1Loss()
 
 means = torch.from_numpy(means).float().cuda()

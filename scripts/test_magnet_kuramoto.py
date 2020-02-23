@@ -62,15 +62,15 @@ magnet = magnet.eval()
 
 # Test on a video
 states, _ = dataset.generate_data(n_samples=1,
-                                  n_frames=200,
+                                  n_frames=500,
                                   seed=int(args.seed),
                                   dt=dt)
 
 
-states = states.reshape((200, n_objects, 1))
+states = states.reshape((500, n_objects, 1))
 
 if args.noise:
-    states += 0.005*stds*np.random.randn(200, n_objects, 1)
+    states += 0.005*stds*np.random.randn(500, n_objects, 1)
 
 means = torch.from_numpy(means).float().cuda()
 stds = torch.from_numpy(stds).float().cuda()
@@ -82,8 +82,7 @@ t = seq_len//2
 GTs = []
 Prds = []
 with torch.no_grad():
-    while t < 199:
-        #print(t)
+    while t < seq_len//2 + 200:
         if t == seq_len//2:
             X = states[t:t+1]
             X = torch.from_numpy(X).float().cuda()
@@ -98,6 +97,9 @@ with torch.no_grad():
         truth = y[0]
         pred = y_pred[0]*stds + means
         pred = pred.cpu().numpy()
+ 
+        GTs.append(truth)
+        Prds.append(pred)
 
         error = np.mean(np.square(truth - pred))
         print('Frame: {}, Error: {}'.format(t,error))
@@ -117,9 +119,6 @@ with torch.no_grad():
         if args.savepath is not None:
             dataset.visualize(truth, t, savepath=os.path.join(args.savepath, 'true/'))
             dataset.visualize(pred, t, savepath=os.path.join(args.savepath, 'predicted/'))
-
-        GTs.append(truth)
-        Prds.append(pred)
 
         t += 1
 

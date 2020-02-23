@@ -30,9 +30,9 @@ class kuramoto:
         return states, shifted_states
                     
     def plot_trajectory(self, phase, savepath='results_imgs/'):
-        timesteps = np.arange(200)
+        timesteps = np.arange(len(phase))
         for i in range(phase.shape[1]):
-            plt.plot(timesteps, np.remainder(phase[:200,i], 2*np.pi))
+            plt.plot(timesteps, np.remainder(phase[:,i], 2*np.pi))
         plt.ylabel('Phase')
         plt.xlabel('Timesteps')
         plt.savefig(savepath)

@@ -9,7 +9,7 @@ sys.path.append('./')
 
 from models.MagNet import MagNet
 from dataGen.kuramoto import kuramoto
-from utils import *
+from utils.utils import *
 
 parser = argparse.ArgumentParser(description='Paths and switches')
 parser.add_argument('--model_path', default=None, help='Path to any pretrained model')
@@ -26,16 +26,18 @@ dt = 0.01
 n_objects = 8
 seq_len = 16
 
+dataset = kuramoto(n_objects=n_objects)
+
 n_samples = 50
 n_frames = 500
-states, _ = kuramoto.generate_data(n_samples=n_samples,
-                                   n_frames=n_frames,
-                                   seed=0,
-                                   dt=dt)
+states, _ = dataset.generate_data(n_samples=n_samples,
+                                  n_frames=n_frames,
+                                  seed=0,
+                                  dt=dt)
 
 if args.noise:
     np.random.seed()
-    states = add_noise(states, dt=dt)
+    states = add_noise(states, idxs=[0], diff=False, dt=dt)
 
 sequences, shifted_sequences = generate_sequences(states, seq_len)
 
@@ -59,14 +61,14 @@ train_data['y'] = (train_data['y'] - means)/stds
 # Load validation data
 n_samples = 10
 n_frames = 500
-states, _ = kuramoto.generate_data(n_samples=n_samples,
-                                   n_frames=n_frames,
-                                   seed=200,
-                                   dt=dt)
+states, _ = dataset.generate_data(n_samples=n_samples,
+                                  n_frames=n_frames,
+                                  seed=200,
+                                  dt=dt)
 
 if args.noise:
     np.random.seed()
-    states = add_noise(states, dt=dt)
+    states = add_noise(states, idxs=[0], diff=False, dt=dt)
 
 sequences, shifted_sequences = generate_sequences(states, seq_len)
 val_count = len(sequences)

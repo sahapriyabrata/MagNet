@@ -81,7 +81,7 @@ val_data['X'] = (val_data['X'] - means)/stds
 val_data['y'] = (val_data['y'] - means)/stds
 
 # Define interaction network
-magnet = MagNet(num_objects=n_objects, in_size=1, out_size=1)
+magnet = MagNet(n_objects=n_objects, in_size=1, out_size=1)
 magnet = magnet.cuda()
 if args.model_path is not None:
     checkpoint = torch.load(args.model_path)
@@ -103,7 +103,7 @@ optimizer = optim.Adam([
 
 #optimizer = optim.Adam([magnet.I3, magnet.S2W, magnet.S2b], lr = 5e-4)
 
-criterion = nn.L1Loss()
+criterion = nn.SmoothL1Loss()
 
 means = torch.from_numpy(means).float().cuda()
 stds = torch.from_numpy(stds).float().cuda()

@@ -22,6 +22,8 @@ Compatible with Python 3.5 and Pytorch 1.1.0
 
 ## Usage
 
+Pre-trained models can be downloaded from [here](https://www.dropbox.com/sh/12c0wpgszty10hc/AABYKfrBdneQhKDmo8ony8vWa?dl=0).
+
 #### Training
 
 #### Evaluation

@@ -124,5 +124,6 @@ with torch.no_grad():
 
 GTs = np.array(GTs)
 Prds = np.array(Prds)
-dataset.plot_trajectory(GTs, savepath=args.savepath + 'gt.png')
-dataset.plot_trajectory(Prds, savepath=args.savepath + 'pred.png')
+if args.savepath is not None:
+    dataset.plot_trajectory(GTs, savepath=args.savepath + 'gt.png')
+    dataset.plot_trajectory(Prds, savepath=args.savepath + 'pred.png')

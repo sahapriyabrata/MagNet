@@ -39,3 +39,6 @@ Pre-trained models can be downloaded from [here](https://www.dropbox.com/sh/12c0
 #### Point-masses-8 (after online re-tuning the model trained with 4 agents):
 ![Point-masses-8](https://github.com/sahapriyabrata/MagNet/blob/master/videos/Point-masses-8.gif)
 
+#### Swarm:
+![Swarm](https://github.com/sahapriyabrata/MagNet/blob/master/videos/Swarm.gif)
+

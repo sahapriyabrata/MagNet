@@ -32,3 +32,6 @@ Pre-trained models can be downloaded from [here](https://www.dropbox.com/sh/12c0
 
 #### Kuramoto:
 ![Kuramoto](https://github.com/sahapriyabrata/MagNet/blob/master/videos/Kuramoto.gif)
+
+#### Point-masses-4:
+![Point-masses-4](https://github.com/sahapriyabrata/MagNet/blob/master/videos/Point-masses-4.gif)

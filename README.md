@@ -26,6 +26,8 @@ Pre-trained models can be downloaded from [here](https://www.dropbox.com/sh/12c0
 
 #### Training
 
+Run `python scripts/train_magnet_<kuramoto/point-masses/swarm>.py`
+
 #### Evaluation
 
 ## Demo

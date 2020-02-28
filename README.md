@@ -30,6 +30,8 @@ Run `python scripts/train_magnet_<kuramoto/point-masses/swarm>.py`
 
 #### Evaluation
 
+Run `python scripts/test_magnet_<kuramoto/point-masses/swarm>.py` --model_path <model_path> --wrapper_path <wrapper_path> --savepath <savepath>
+
 ## Demo
 
 #### Kuramoto:

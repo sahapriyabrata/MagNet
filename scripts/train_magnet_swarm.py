@@ -8,7 +8,7 @@ import sys
 sys.path.append('./')
 
 from models.MagNet import MagNet
-from dataGen.point_masses import point_masses
+from dataGen.swarm import swarm
 from utils.utils import *
 
 parser = argparse.ArgumentParser(description='Paths and switches')
@@ -23,13 +23,16 @@ torch.set_default_tensor_type('torch.cuda.FloatTensor')
 dt = 0.01
 
 # Load train data
-n_objects = 4
+n_predator=1 
+n_prey=20
+n_objects = n_predator + n_prey
 seq_len = 16
 
-dataset = point_masses(n_objects=n_objects)
+dataset = swarm(n_predator=1, n_prey=20)
 
-n_samples = 50
-n_frames = 500
+n_samples = 100
+n_frames = 300
+print("Generating dataset...")
 states, _ = dataset.generate_data(n_samples=n_samples,
                                   n_frames=n_frames,
                                   seed=0,
@@ -46,7 +49,7 @@ stds = np.std(sequences, axis=(0,1,2))
 means = means[np.newaxis,:]
 stds = stds[np.newaxis,:]
 
-np.save('./saved_models/point-masses/trainset_musigma.npy', np.concatenate([means, stds], axis=0))
+np.save('./saved_models/swarm/trainset_musigma.npy', np.concatenate([means, stds], axis=0))
 
 train_count = len(sequences)
 order = np.random.choice(train_count, train_count, replace=False)
@@ -153,12 +156,12 @@ for epoch in range(num_epoches):
             g['lr'] *= 0.95
         print("LR: {}".format(g['lr']))
     # Save models    
-    torch.save(magnet.state_dict(), 'saved_models/point-masses/model-{}.ckpt'.format(epoch))
+    torch.save(magnet.state_dict(), 'saved_models/swarm/model-{}.ckpt'.format(epoch))
     dict = {}
     dict['I3'] = magnet.I3
     dict['S2W'] = magnet.S2W
     dict['S2b'] = magnet.S2b
-    torch.save(dict, 'saved_models/point-masses/wrapper-{}.ckpt'.format(epoch))
+    torch.save(dict, 'saved_models/swarm/wrapper-{}.ckpt'.format(epoch))
 
 
 

@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib as mpl
-import pylab as plt
+import matplotlib.pyplot as plt
 
 class swarm:
     def __init__(self, n_predator=1,  n_prey=50):
@@ -62,9 +62,17 @@ class swarm:
             
         return states, shifted_states                
 
-    def visualize(self, pos, i, savepath='results_imgs/'):
-        plt.plot(pos[self.n_prey:,0], pos[self.n_prey:,1], 'co', ms = 15)
-        plt.plot(pos[:self.n_prey,0], pos[:self.n_prey,1], 'm^', ms=5)
+    def visualize(self, states, i, savepath='results_imgs/'):
+        ax = plt.gca()
+        plt.plot(states[self.n_prey:,0], states[self.n_prey:,1], 'o', color=(0.75, 0, 0), ms = 15)
+        for n in range(self.n_prey):
+            poly = np.array([[states[n,0], states[n,1]], [states[n,0]-2, states[n,1]], [states[n,0]+2, states[n, 1]+2], [states[n,0], states[n, 1]-2]])
+            prey = plt.Polygon(poly, facecolor='k')
+            direction = np.angle(states[n,2] + states[n,3] * 1j, deg=True) - 45
+            rot = mpl.transforms.Affine2D().rotate_deg_around(states[n,0], states[n,1], direction) + ax.transData
+            prey.set_transform(rot)
+            ax.add_patch(prey)
+        #plt.axis([25, 115, 25, 115])
         plt.axis([0, 128, 0, 128])
         plt.axis('off')
         plt.savefig(savepath+'%i_animate.png' % (i + 1))
@@ -74,9 +82,9 @@ class swarm:
         colors = [mpl.cm.Oranges(np.arange(56,256)), mpl.cm.Blues(np.arange(56,256)), mpl.cm.Purples(np.arange(56,256)), mpl.cm.Greys(np.arange(56,256)),
                   mpl.cm.Greens(np.arange(56,256)), mpl.cm.Reds(np.arange(56,256))]
         for i in range(self.n_prey):
-            plt.scatter(pos[:200,i,0], pos[:200,i,1], marker='o', c=colors[1], s=5)
+            plt.scatter(pos[:,i,0], pos[:,i,1], marker='o', c=colors[1], s=5)
         for i in range(self.n_predator):    
-            plt.scatter(pos[:200,self.n_prey+i,0], pos[:200,self.n_prey+i,1], marker='o', c=colors[-1], s=50)
+            plt.scatter(pos[:,self.n_prey+i,0], pos[:,self.n_prey+i,1], marker='o', c=colors[-1], s=50)
         plt.axis('off')
         plt.savefig(savepath)
         plt.close()

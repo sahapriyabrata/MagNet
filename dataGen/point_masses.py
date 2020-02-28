@@ -55,7 +55,7 @@ class point_masses:
         colors = [mpl.cm.Oranges(np.arange(56,256)), mpl.cm.Blues(np.arange(56,256)), mpl.cm.Purples(np.arange(56,256)), mpl.cm.Greys(np.arange(56,256)),
                   mpl.cm.Greens(np.arange(56,256)), mpl.cm.Reds(np.arange(56,256))]
         for i in range(pos.shape[1]):
-            plt.scatter(pos[:200,i,0], pos[:200,i,1], marker='o', c=colors[i % 6], s=5+10*i)
+            plt.scatter(pos[:,i,0], pos[:,i,1], marker='o', c=colors[i % 6], s=5+10*i)
         plt.axis('off')
         plt.savefig(savepath)
         plt.close()

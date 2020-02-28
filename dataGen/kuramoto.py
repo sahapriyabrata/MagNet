@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib as mpl
-import pylab as plt
+import matplotlib.pyplot as plt
 
 class kuramoto:
     def __init__(self, n_objects=5):

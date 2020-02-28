@@ -80,7 +80,7 @@ val_data['y'] = shifted_sequences
 val_data['X'] = (val_data['X'] - means)/stds
 val_data['y'] = (val_data['y'] - means)/stds
 
-# Define interaction network
+# Define model
 magnet = MagNet(n_objects=n_objects)
 magnet = magnet.cuda()
 if args.model_path is not None:

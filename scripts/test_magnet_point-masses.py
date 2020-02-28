@@ -50,7 +50,7 @@ else:
     stds = musigma[1:]
 
 
-# Load interaction network
+# Load model
 magnet = MagNet(n_objects=n_objects)
 magnet = magnet.cuda()
 checkpoint = torch.load(args.model_path)

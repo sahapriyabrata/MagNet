@@ -27,3 +27,7 @@ Pre-trained models can be downloaded from [here](https://www.dropbox.com/sh/12c0
 #### Training
 
 #### Evaluation
+
+## Demo
+
+![Kuramoto](https://github.com/sahapriyabrata/MagNet/Kuramoto.gif)

@@ -101,8 +101,8 @@ if args.wrapper_path is not None:
 # Define optimizer and loss
 optimizer = optim.Adam([
                        {'params': magnet.parameters()},
-                       {'params': [magnet.I3, magnet.S2W, magnet.S2b], 'lr': 1e-3}
-                       ], lr=1e-3)               
+                       {'params': [magnet.I3, magnet.S2W, magnet.S2b], 'lr': 1e-4}
+                       ], lr=1e-4)               
 
 criterion = nn.SmoothL1Loss()
 

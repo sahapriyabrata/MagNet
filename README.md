@@ -32,6 +32,10 @@ Run `python scripts/train_magnet_<kuramoto/point-masses/swarm>.py`
 
 Run `python scripts/test_magnet_<kuramoto/point-masses/swarm>.py --model_path <model_path> --wrapper_path <wrapper_path> --savepath <savepath>`
 
+#### Prediction with online re-tuning
+
+Run `python scripts/prediction_with_online_retuning.py --model_path <wrapper_path> --wrapper_path <wrapper_path> --pretrained_agents <#> --musigma <musigma_path>`
+
 ## Demo
 
 #### Kuramoto:

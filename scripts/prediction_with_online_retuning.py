@@ -12,6 +12,7 @@ from dataGen.point_masses import point_masses
 from utils.utils import *
 
 parser = argparse.ArgumentParser(description='Paths and switches')
+parser.add_argument('--seed', default=125, help='Seed for random initialization of sequence')
 parser.add_argument('--model_path', default=None, help='Path to any pretrained model')
 parser.add_argument('--wrapper_path', default=None, help='Path to any pretrained wrapper')
 parser.add_argument('--pretrained_agents', default=None, help='Number of agents in pretrained wrapper')
@@ -119,7 +120,7 @@ while t < (n_frames-1):
 
     optimizer = optim.Adam([magnet.I3, magnet.S2W, magnet.S2b], lr=5e-4)
 
-    criterion = nn.L1Loss(size_average=True)
+    criterion = nn.SmoothL1Loss()
 
     means = torch.from_numpy(means).float().cuda()
     stds = torch.from_numpy(stds).float().cuda()

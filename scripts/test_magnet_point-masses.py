@@ -35,10 +35,10 @@ dataset = point_masses(n_objects=n_objects)
 if args.musigma is None:
     n_samples = 50
     n_frames = 500
-    states, shifted_states = dataset.generate_data(n_samples=n_samples,
-                                                   n_frames=n_frames,
-                                                   seed=0,
-                                                   dt=dt)
+    states, _ = dataset.generate_data(n_samples=n_samples,
+                                      n_frames=n_frames,
+                                      seed=0,
+                                      dt=dt)
 
     means = np.mean(states, axis=(0,1,2))
     stds = np.std(states, axis=(0,1,2))

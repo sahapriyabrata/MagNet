@@ -82,9 +82,9 @@ class swarm:
         colors = [mpl.cm.Oranges(np.arange(56,256)), mpl.cm.Blues(np.arange(56,256)), mpl.cm.Purples(np.arange(56,256)), mpl.cm.Greys(np.arange(56,256)),
                   mpl.cm.Greens(np.arange(56,256)), mpl.cm.Reds(np.arange(56,256))]
         for i in range(self.n_prey):
-            plt.scatter(pos[:,i,0], pos[:,i,1], marker='o', c=colors[1], s=5)
+            plt.scatter(pos[:200,i,0], pos[:200,i,1], marker='o', c=colors[1], s=5)
         for i in range(self.n_predator):    
-            plt.scatter(pos[:,self.n_prey+i,0], pos[:,self.n_prey+i,1], marker='o', c=colors[-1], s=50)
+            plt.scatter(pos[:200,self.n_prey+i,0], pos[:200,self.n_prey+i,1], marker='o', c=colors[-1], s=50)
         plt.axis('off')
         plt.savefig(savepath)
         plt.close()

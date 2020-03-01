@@ -26,11 +26,11 @@ Pre-trained models can be downloaded from [here](https://www.dropbox.com/sh/12c0
 
 #### Training
 
-Run `python scripts/train_magnet_<kuramoto/point-masses/swarm>.py`
+Run `python scripts/train_magnet_<kuramoto/point-masses/swarm/bouncing-balls>.py`
 
 #### Evaluation
 
-Run `python scripts/test_magnet_<kuramoto/point-masses/swarm>.py --model_path <model_path> --wrapper_path <wrapper_path> --savepath <savepath>`
+Run `python scripts/test_magnet_<kuramoto/point-masses/swarm/bouncing-balls>.py --model_path <model_path> --wrapper_path <wrapper_path> --savepath <savepath>`
 
 #### Prediction with online re-tuning
 

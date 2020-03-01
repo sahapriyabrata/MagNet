@@ -13,7 +13,7 @@ from models.MagNet import MagNet
 from dataGen.point_masses import point_masses
 
 parser = argparse.ArgumentParser(description='Paths and switches')
-parser.add_argument('--seed', default=125, help='Seed for random numbers')
+parser.add_argument('--seed', default=123, help='Seed for random numbers')
 parser.add_argument('--model_path', default=None, help='Path to any pretrained model')
 parser.add_argument('--wrapper_path', default=None, help='Path to any pretrained wrapper')
 parser.add_argument('--savepath', default=None, help='Path to save results')

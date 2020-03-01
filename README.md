@@ -50,3 +50,6 @@ Run `python scripts/prediction_with_online_retuning.py --model_path <wrapper_pat
 #### Swarm:
 ![Swarm](https://github.com/sahapriyabrata/MagNet/blob/master/videos/Swarm.gif)
 
+#### Bouncing-balls:
+![Bouncing-balls](https://github.com/sahapriyabrata/MagNet/blob/master/videos/Bouncing-balls.gif)
+

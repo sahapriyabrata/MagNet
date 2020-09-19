@@ -3,13 +3,7 @@ Repository for our work [**MagNet: Discovering Multi-agent Interaction Dynamics 
 
 If you find our work useful, please don't forget to cite. 
 ```
-@article{saha2020magnet,
-  title={MagNet: Discovering Multi-agent Interaction Dynamics using Neural Network},
-  author={Saha, Priyabrata and Ali, Arslan and Mudassar, Burhan A and Long, Yun and Mukhopadhyay, Saibal},
-  journal={arXiv preprint arXiv:2001.09001},
-  year={2020}
-}
-
+@INPROCEEDINGS{9196846,  author={P. {Saha} and A. {Ali} and B. A. {Mudassar} and Y. {Long} and S. {Mukhopadhyay}},  booktitle={2020 IEEE International Conference on Robotics and Automation (ICRA)},   title={MagNet: Discovering Multi-agent Interaction Dynamics using Neural Network},   year={2020},  volume={},  number={},  pages={8158-8164},}
 ```
 
 ## Installation
